@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FirePoint : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = .1f;
 
     public Rigidbody2D rb;
     public Camera cam;
