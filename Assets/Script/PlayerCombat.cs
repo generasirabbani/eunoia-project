@@ -26,11 +26,12 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         if(Time.time>= nextAttackTime)
-
-        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Attack();
-            nextAttackTime = Time.time + 1f / attackRate;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 

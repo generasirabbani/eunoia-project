@@ -2,11 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyState
+{
+    idle,
+    walk,
+    attack,
+    stagger
+}
 public class EnemyScript : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public EnemyState currentState;
+    public int maxHealth = 200;
+    public string enemyName;
+    public int baseAttack;
+    public float moveSpeed = 1.5f;
+
     public Animator animator;
+    
     int currentHealth;
+    
     Vector2 movement;
 
     // Start is called before the first frame update
@@ -44,5 +58,10 @@ public class EnemyScript : MonoBehaviour
     public void RemoveEnemy()
     {
         Destroy(gameObject);
+    }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        
     }
 }

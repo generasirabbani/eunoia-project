@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4942730661713613413}
   - component: {fileID: 3385166773698060853}
   - component: {fileID: 702035732713199099}
+  - component: {fileID: 8563345537446973724}
   m_Layer: 6
   m_Name: Mole
   m_TagString: enemy
@@ -117,7 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c29a12b1fb064a4d88d3c70d73062d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  currentState: 0
+  maxHealth: 200
+  enemyName: 
+  baseAttack: 0
+  moveSpeed: 1.5
   animator: {fileID: 4942730661713613413}
 --- !u!95 &4942730661713613413
 Animator:
@@ -186,3 +191,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.72126675, y: 0.9274026}
   m_EdgeRadius: 0
+--- !u!114 &8563345537446973724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942730661713613408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7c930fbe33ca6489a6a1e332ec4e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  maxHealth: 200
+  enemyName: Mol
+  baseAttack: 10
+  moveSpeed: 1.5
+  animator: {fileID: 4942730661713613413}
+  target: {fileID: 0}
+  homePosition: {fileID: 0}
+  chaseRadius: 4
+  attackRadius: 2
+  anim: {fileID: 4942730661713613413}

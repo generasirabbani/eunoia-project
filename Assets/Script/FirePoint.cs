@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class FirePoint : MonoBehaviour
 {
-    public float moveSpeed = .1f;
-
-    public Rigidbody2D rb;
     public Camera cam;
+    public Rigidbody2D rb;
 
-    Vector2 movement;
     Vector2 mousePos;
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -27,6 +21,6 @@ public class FirePoint : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
 
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition((Vector2)GameObject.Find("Player").transform.position + new Vector2(1.06f, -0.2f));
     }
 }
