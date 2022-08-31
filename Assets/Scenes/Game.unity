@@ -3527,14 +3527,38 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1714439829304742804, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3000578721563757151, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 896983593}
+    - target: {fileID: 4401105342385447614, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553791295047615385, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801190919252428963, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6452826417469570581, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 896983593}
+    - target: {fileID: 6899457081594322938, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372010932247436031, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7717467259935147632, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3583,6 +3607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8376276048880064394, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 83ed3e5f1f2cc7f489cb46eab0d6f5a4, type: 3}
@@ -3605,7 +3633,7 @@ GameObject:
   - component: {fileID: 1317645003}
   m_Layer: 0
   m_Name: Tilemap_Rocks
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

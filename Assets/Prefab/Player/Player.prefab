@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 7621269660165290985}
   - component: {fileID: 5891009404315087739}
   - component: {fileID: 1943553771043922665}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -546,6 +546,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
+  currentState: 0
+  maxHealth: 1000
 --- !u!114 &7621269660165290985
 MonoBehaviour:
   m_ObjectHideFlags: 0

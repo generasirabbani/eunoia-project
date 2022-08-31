@@ -12,12 +12,16 @@ public enum EnemyState
 public class EnemyScript : MonoBehaviour
 {
     public EnemyState currentState;
-    public int maxHealth = 200;
     public string enemyName;
+
+    public int maxHealth = 200;
     public int baseAttack;
+
     public float moveSpeed = 1.5f;
+    public float attackRange = 0.5f;
 
     public Animator animator;
+    public LayerMask playerLayers;
     
     int currentHealth;
     
@@ -50,6 +54,22 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    public void Knock(Rigidbody2D myRigidbody, float knockTime)
+    {
+        StartCoroutine(KnockCo(myRigidbody, knockTime));
+        Attack();
+    }
+    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)
+    {
+        if (myRigidbody != null);
+        {
+            yield return new WaitForSeconds(knockTime);
+            myRigidbody.velocity = Vector2.zero;
+            currentState = EnemyState.idle;
+            myRigidbody.velocity = Vector2.zero;
+        }
+    }
+
     void Die()
     {
         animator.SetBool("isDead", true);
@@ -59,9 +79,17 @@ public class EnemyScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-    public void OnCollisionEnter2D(Collision2D col)
+    void Attack()
     {
-        
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayers);
+
+        foreach (Collider2D player in hitPlayers)
+        {
+            player.GetComponent<PlayerMovement>().TakeDamage(baseAttack);
+        }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

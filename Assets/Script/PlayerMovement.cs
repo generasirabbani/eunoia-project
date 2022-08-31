@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState
+{
+    idle,
+    walk,
+    attack,
+    interact,
+    stagger
+}
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -15,7 +23,16 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public LayerMask layerMask;
+    public PlayerState currentState;
 
+    public int maxHealth = 1000;
+
+    int currentHealth;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -118,5 +135,39 @@ public class PlayerMovement : MonoBehaviour
         {
             return false;
         }
+    }
+    public void Knock(float knockTime)
+    {
+        StartCoroutine(KnockCo(knockTime));
+    }
+    private IEnumerator KnockCo(float knockTime)
+    {
+        if (rb != null);
+        {
+            yield return new WaitForSeconds(knockTime);
+            rb.velocity = Vector2.zero;
+            currentState = PlayerState.idle;
+            rb.velocity = Vector2.zero;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        animator.SetTrigger("Hurt");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        animator.SetBool("isDead", true);
+    }
+    public void RemoveEnemy()
+    {
+        Destroy(gameObject);
     }
 }
