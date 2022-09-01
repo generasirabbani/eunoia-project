@@ -9,14 +9,15 @@ public class EnemyLog : EnemyScript
     
     public float chaseRadius;
     public float attackRadius;
+    public float moveSpeed = 1.5f;
 
     public Animator anim;
-    private Rigidbody2D rb;
+    private Rigidbody2D myRigidbody;
     // Start is called before the first frame update
     void Start()
     {
         currentState = EnemyState.idle;
-        rb = GetComponent<Rigidbody2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
     }
@@ -36,7 +37,7 @@ public class EnemyLog : EnemyScript
                 && currentState != EnemyState.stagger)
             {
                 Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
-                rb.MovePosition(temp);
+                myRigidbody.MovePosition(temp);
                 ChangeState(EnemyState.walk);
             }
         }

@@ -148,6 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7617801377509152265}
   - component: {fileID: 1028813008767178858}
+  - component: {fileID: 8980053867399916198}
   m_Layer: 0
   m_Name: DownHitbox
   m_TagString: Untagged
@@ -201,6 +202,20 @@ PolygonCollider2D:
       - {x: 0.41987383, y: -1.0468915}
       - {x: 0.6712042, y: 0.3649876}
   m_UseDelaunayMesh: 0
+--- !u!114 &8980053867399916198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401105342385447614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcfa3b81c8a74645aa488623a274a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordDamage: 1
+  swordCollider: {fileID: 1028813008767178858}
 --- !u!1 &5553791295047615385
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8337592349141106771}
   - component: {fileID: 8784876969763096352}
+  - component: {fileID: 4594273732481240480}
   m_Layer: 0
   m_Name: LeftHitbox
   m_TagString: Untagged
@@ -264,6 +280,20 @@ PolygonCollider2D:
       - {x: -0.4117723, y: -0.8216541}
       - {x: 0.13409963, y: -0.17211713}
   m_UseDelaunayMesh: 0
+--- !u!114 &4594273732481240480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553791295047615385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcfa3b81c8a74645aa488623a274a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordDamage: 1
+  swordCollider: {fileID: 8784876969763096352}
 --- !u!1 &5801190919252428963
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,37 +325,6 @@ Transform:
   m_Father: {fileID: 789606913774144970}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6899457081594322938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3757950140856342521}
-  m_Layer: 0
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3757950140856342521
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6899457081594322938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -0.17, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7717467259935147632}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7372010932247436031
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7607062055710060840}
   - component: {fileID: 3245331304268819612}
+  - component: {fileID: 4065676145950551902}
   m_Layer: 0
   m_Name: UpHitbox
   m_TagString: Untagged
@@ -350,7 +350,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7372010932247436031}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -391,6 +391,20 @@ PolygonCollider2D:
       - {x: 1.3469169, y: -1.1770226}
       - {x: 1.1390052, y: -0.3973546}
   m_UseDelaunayMesh: 0
+--- !u!114 &4065676145950551902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7372010932247436031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcfa3b81c8a74645aa488623a274a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordDamage: 1
+  swordCollider: {fileID: 3245331304268819612}
 --- !u!1 &7717467259935147646
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +421,8 @@ GameObject:
   - component: {fileID: 7621269660165290985}
   - component: {fileID: 5891009404315087739}
   - component: {fileID: 1943553771043922665}
+  - component: {fileID: 6005916195278314196}
+  - component: {fileID: 8914450752004423319}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -426,12 +442,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3757950140856342521}
   - {fileID: 789606913774144970}
-  - {fileID: 7617801377509152265}
-  - {fileID: 1339088179519054716}
-  - {fileID: 8337592349141106771}
   - {fileID: 7607062055710060840}
+  - {fileID: 7617801377509152265}
+  - {fileID: 8337592349141106771}
+  - {fileID: 1339088179519054716}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -546,7 +561,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
-  currentState: 0
   maxHealth: 1000
 --- !u!114 &7621269660165290985
 MonoBehaviour:
@@ -560,12 +574,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1c1888af1fbce4e9e6697366bb53f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7717467259935147634}
-  animator: {fileID: 7717467259935147635}
-  attackPoint: {fileID: 3757950140856342521}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 64
+  upHitbox: {fileID: 7372010932247436031}
+  downHitbox: {fileID: 4401105342385447614}
+  leftHitbox: {fileID: 5553791295047615385}
+  rightHitbox: {fileID: 8376276048880064394}
   attackRange: 1.62
   attackDamage: 40
   attackRate: 2
@@ -599,6 +611,34 @@ CapsuleCollider2D:
   m_Offset: {x: -0.069754735, y: -1.0804969}
   m_Size: {x: 0.6982468, y: 0.3047262}
   m_Direction: 1
+--- !u!114 &6005916195278314196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717467259935147646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3d3899cb00dff489b551efe116433d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 10
+  _targetable: 1
+--- !u!114 &8914450752004423319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717467259935147646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d6fb5a895997842890d15c84425f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _targetable: 1
 --- !u!1 &8376276048880064394
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339088179519054716}
   - component: {fileID: 4540655147119317537}
+  - component: {fileID: 5756721378558228808}
   m_Layer: 0
   m_Name: RightHitbox
   m_TagString: Untagged
@@ -662,3 +703,17 @@ PolygonCollider2D:
       - {x: 0.3852219, y: -0.85630596}
       - {x: 1.225635, y: -0.2933988}
   m_UseDelaunayMesh: 0
+--- !u!114 &5756721378558228808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376276048880064394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcfa3b81c8a74645aa488623a274a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordDamage: 1
+  swordCollider: {fileID: 4540655147119317537}
