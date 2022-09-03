@@ -6,7 +6,7 @@ public class SwordHitbox : MonoBehaviour
 {
     public float swordDamage = 1f;
 
-    public float knockbackForce = 500f;
+    public float knockbackForce = 15f;
 
     public Collider2D swordCollider;
 
@@ -24,15 +24,12 @@ public class SwordHitbox : MonoBehaviour
 
         if(damageableObject != null)
         {
-            Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+            Vector3 parentPosition = transform.parent.position;
 
-            Vector2 direction = (Vector2)(parentPosition - collider.gameObject.transform.position).normalized;
+            Vector2 direction = (collider.transform.position - parentPosition).normalized;
             Vector2 knockback = direction * knockbackForce;
 
             damageableObject.OnHit(swordDamage, knockback);
-        } else
-        {
-            Debug.LogWarning("Collider does not implement IDamageable");
         }
     }
 }

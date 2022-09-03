@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DamageableCharacter : MonoBehaviour, IDamageable
 {
-    Rigidbody2D rb;
+    public GameObject healthText;
+    public bool disableSimulation = false;
+    public bool canTurnInvincible = false;
+    public float invincibilityTime = 0.3f;
+
     Animator animator;
+    Rigidbody2D rb;
     Collider2D physicsCollider;
 
+    private float invincibleTimeElapsed = 0f;
     public float Health
     {
         set
@@ -15,13 +22,19 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
             if (value < _health)
             {
                 animator.SetTrigger("Hurt");
+                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+                Canvas canvas = GameObject.FindObjectOfType<Canvas>();
+                textTransform.SetParent(canvas.transform);
             }
 
             _health = value;
 
             if (_health <= 0)
             {
-                Die();
+                animator.SetBool("isDead", true);
+                Targetable = false;
             }
         }
         get
@@ -37,13 +50,32 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
         {
             _targetable = value;
 
+            if(disableSimulation)
+            {
+                rb.simulated = false;
+            }
             physicsCollider.enabled = value;
+        }
+    }
+
+    public bool Invincible { get
+        {
+            return _invincible;
+        }
+        set
+        {
+            _invincible = value;
+
+            if(_invincible == true)
+            {
+                invincibleTimeElapsed = 0f;
+            }
         }
     }
 
     public float _health = 3;
     public bool _targetable = true;
-
+    public bool _invincible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,27 +85,52 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
         physicsCollider = GetComponent<Collider2D>();
     }
 
-    void FixedUpdate()
-    {
-        
-    }
-    void Die()
-    {
-        animator.SetBool("isDead", true);
-    }
-
     public void OnHit(float damage, Vector2 knockback)
     {
-        Health -= damage;
-        rb.AddForce(knockback);
+        if(!Invincible)
+        {
+            Health -= damage;
+
+            // Apply force to the enemy
+            rb.AddForce(knockback, ForceMode2D.Impulse);
+
+            if(canTurnInvincible)
+            {
+                // Activate invincibility and timer
+                Invincible = true;
+            }
+        }
+        
     }
 
     public void OnHit(float damage)
     {
-        Health -= damage;
+        if(!Invincible)
+        {
+            Health -= damage;
+
+            if (canTurnInvincible)
+            {
+                // Activate invincibility and timer
+                Invincible = true;
+            }
+        }
     }
     public void OnObjectDestroyed()
     {
         Destroy(gameObject);
+    }
+
+    public void FixedUpdate()
+    {
+        if(Invincible)
+        {
+            invincibleTimeElapsed += Time.deltaTime;
+
+            if(invincibleTimeElapsed > invincibilityTime)
+            {
+                Invincible = false;
+            }
+        }
     }
 }

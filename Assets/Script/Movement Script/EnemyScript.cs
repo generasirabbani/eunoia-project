@@ -2,40 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyState
-{
-    idle,
-    walk,
-    attack,
-    stagger
-}
 public class EnemyScript : MonoBehaviour
 {
-    public EnemyState currentState;
-    public LayerMask playerLayers;
-    
     public float damage = 1;
-    public void Knock(Rigidbody2D myRigidbody, float knockTime)
+    public float knockbackForce = 15f;
+    public float moveSpeed = 500f;
+
+    public DetectionZone detectionZone;
+
+    Rigidbody2D rb;
+
+    DamageableCharacter damageableCharacter;
+
+    void Start()
     {
-        StartCoroutine(KnockCo(myRigidbody, knockTime));
+        rb = GetComponent<Rigidbody2D>();
+        damageableCharacter = GetComponent<DamageableCharacter>();
     }
-    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)
+    void FixedUpdate()
     {
-        if (myRigidbody != null);
+        if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0)
         {
-            yield return new WaitForSeconds(knockTime);
-            myRigidbody.velocity = Vector2.zero;
-            currentState = EnemyState.idle;
-            myRigidbody.velocity = Vector2.zero;
+            // Calculate direction to target object
+            Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+
+            // Move towards detected object
+            rb.AddForce(direction * moveSpeed * Time.fixedDeltaTime);
         }
     }
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
+        Collider2D collider = col.collider;
         IDamageable damageable = col.collider.GetComponent<IDamageable>();
 
         if(damageable != null)
         {
-            damageable.OnHit(damage);
+            Vector2 direction = (collider.transform.position - transform.position).normalized;
+            Vector2 knockback = direction * knockbackForce;
+
+            damageable.OnHit(damage, knockback);
         }
     }
 }
