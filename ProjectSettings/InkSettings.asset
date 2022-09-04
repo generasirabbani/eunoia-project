@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983af1b6602bf416b9928d40b37a38bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  templateFile: {fileID: 4900000, guid: 0487be7f554cd45a6916f94d2b6baf50, type: 3}
+  templateFile: {fileID: 0}
   defaultJsonAssetPath: {fileID: 0}
   compileAutomatically: 1
   delayInPlayMode: 1
