@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FirePoint : MonoBehaviour
 {
-    public Camera cam;
     public Rigidbody2D rb;
 
     Vector2 mousePos;
@@ -12,7 +11,7 @@ public class FirePoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate()

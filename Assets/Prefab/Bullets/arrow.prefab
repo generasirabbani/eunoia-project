@@ -147,3 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 5534724007317705291, guid: 19b3b48ba95e7844da6b8d718c13e0fe, type: 3}
+  arrowCollider: {fileID: 1766546069543459746}
+  damage: 1
+  knockbackForce: 10
