@@ -20,7 +20,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if(Time.time>= nextAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 animator.SetTrigger("swordAttack");
                 nextAttackTime = Time.time + 1f / attackRate;

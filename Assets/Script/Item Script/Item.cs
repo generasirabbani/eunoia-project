@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Item 
 {
     public enum ItemType
@@ -51,6 +53,25 @@ public class Item
             case ItemType.Wood:         return new Color(1, 1, 0);
             case ItemType.Rock:         return new Color(1, 0, 1);
             case ItemType.MagicCrystal: return new Color(1, 1, 1);
+        }
+    }
+
+    public bool IsStackable()
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.Sword:
+            case ItemType.MagicStaff:
+                return false;
+            case ItemType.HealthPotion:
+            case ItemType.ManaPotion:
+            case ItemType.Grass:
+            case ItemType.Ratan:
+            case ItemType.Wood:
+            case ItemType.Rock:
+            case ItemType.MagicCrystal:
+                return true;
         }
     }
 }

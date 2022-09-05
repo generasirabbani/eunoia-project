@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 702035732713199099}
   - component: {fileID: 1717691902179743264}
   m_Layer: 6
-  m_Name: Mole
+  m_Name: Ghost
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7cefe9e9e8c984bbd9ff43235be8f54f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2b9ff1f29fd3fd48b8d36e2560656ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -181,7 +181,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
+    oldSize: {x: 2.64, y: 2.64}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -203,6 +203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 6442022966891478509, guid: 2ab557051cefcc34fab68d5bd7b78729, type: 3}
+  disableSimulation: 0
+  canTurnInvincible: 0
+  invincibilityTime: 0.25
+  _health: 100
+  _targetable: 1
+  _invincible: 0
 --- !u!1 &6723911540737382252
 GameObject:
   m_ObjectHideFlags: 0

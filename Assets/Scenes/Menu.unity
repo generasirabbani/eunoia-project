@@ -1274,6 +1274,13 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Death Theme
+    clip: {fileID: 8300000, guid: 41747f3b8c6c85e4abb6da67703f27d6, type: 3}
+    output: {fileID: -7372706036990280309, guid: 15f62c1ed61b3a94c973d351caa5f2ab, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &1977449966
 Transform:
   m_ObjectHideFlags: 0

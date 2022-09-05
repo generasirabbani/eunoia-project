@@ -10,15 +10,16 @@ public class PlayerInventory : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        inventory = new Inventory();
+        inventory = new Inventory(UseItem);
+        uiInventory.SetPlayer(this);
         uiInventory.SetInventory(inventory);
 
-        ItemWorld.SpawnItemWorld(new Vector3(10, 10), new Item { itemType = Item.ItemType.Sword, amount = 1 });
-        ItemWorld.SpawnItemWorld(new Vector3(-10, 10), new Item { itemType = Item.ItemType.ManaPotion, amount = 1 });
-        ItemWorld.SpawnItemWorld(new Vector3(0, -10), new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
     }
 
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
@@ -27,6 +28,19 @@ public class PlayerInventory : MonoBehaviour
             // Touching Item
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestroySelf();
+        }
+    }
+
+    private void UseItem(Item item)
+    {
+        switch (item.itemType)
+        {
+            case Item.ItemType.HealthPotion:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.HealthPotion, amount = 1 });
+                break;
+            case Item.ItemType.ManaPotion:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.ManaPotion, amount = 1 });
+                break;
         }
     }
 }
